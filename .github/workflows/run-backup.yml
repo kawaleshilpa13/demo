@@ -1,0 +1,19 @@
+name: Run Backup Script
+
+on:
+  push:
+    branches: [ main ]  # or "master" if that's your default branch
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Make script executable
+      run: chmod +x backup.sh
+
+    - name: Run backup script
+      run: ./backup.sh
